@@ -108,6 +108,28 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    //1. Negativer Test
+    @Test
+    @DisplayName("should keep memory after first C press")
+    void testClearKey() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(7);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        calc.pressEqualsKey();
+
+        //assert "zwischengespeicherte Werte" is not cleared after first C press
+        String expected = "7";
+        String actual = calc.readScreen();
+        assertEquals(expected, actual);
+
+    }
+
+
+
+
 
 
 
