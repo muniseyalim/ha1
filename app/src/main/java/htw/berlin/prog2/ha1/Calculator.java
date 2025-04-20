@@ -2,7 +2,7 @@ package htw.berlin.prog2.ha1;
 
 /**
  * Eine Klasse, die das Verhalten des Online Taschenrechners imitiert, welcher auf
- * https://www.online-calculator.com/ aufgerufen werden kann (ohne die Memory-Funktionen)
+ * "/www.online-calculator.com/ aufgerufen werden kann (ohne die Memory-Funktionen)
  * und dessen Bildschirm bis zu zehn Ziffern plus einem Dezimaltrennzeichen darstellen kann.
  * Enthält mit Absicht noch diverse Bugs oder unvollständige Funktionen.
  */
@@ -13,6 +13,9 @@ public class Calculator {
     private double latestValue;
 
     private String latestOperation = "";
+
+    private boolean isCleared = false;
+
 
     /**
      * @return den aktuellen Bildschirminhalt als String
@@ -45,9 +48,16 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+            if (!isCleared) {
+                screen = "0";
+                isCleared = true;
+            } else {
+                screen = "0";
+                latestOperation = "";
+                latestValue = 0.0;
+                isCleared = false;
+            }
+
     }
 
     /**

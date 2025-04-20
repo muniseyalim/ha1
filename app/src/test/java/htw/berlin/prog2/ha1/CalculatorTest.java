@@ -124,7 +124,6 @@ class CalculatorTest {
         String expected = "7";
         String actual = calc.readScreen();
         assertEquals(expected, actual);
-
     }
 
 
